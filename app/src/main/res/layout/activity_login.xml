@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:weightSum="1"
+    android:background="@color/backgroudColor"
+    >
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_marginTop="60dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        android:layout_weight="0.01"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appName"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        />
+    <EditText
+        style="@style/CheckBoxThrme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:textSize="16dp"
+        android:textColorHint="@color/white"
+        android:inputType="numberPassword"
+        android:drawableLeft="@drawable/user"
+        android:layout_margin="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        style="@style/CheckBoxThrme"
+        android:id="@+id/editText"
+        android:textSize="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="-40dp"
+        android:drawableLeft="@drawable/password"
+        android:hint="请输入用户密码"
+        android:inputType="numberPassword"
+        android:textColorHint="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
+
+        <android.support.v7.widget.AppCompatCheckBox
+            style="@style/CheckBoxThrme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+
+            android:text="记住密码"
+            android:textColor="@color/white" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:paddingTop="6dp"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/round_button"
+        android:text="登 录"/>
+
+
+
+</LinearLayout>

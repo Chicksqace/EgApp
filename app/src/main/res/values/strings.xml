@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EgApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appName">移 动 电 子 政 务</string>
+</resources>
