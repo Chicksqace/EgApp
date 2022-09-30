@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--当checkbox未勾选。选择未勾选图片-->
+    <!--当checkbox未勾选的时候，选择未勾选的图片-->
     <item android:drawable="@drawable/checkbox_unselect" android:state_checked="false"></item>
-    <!--当checkbox勾选。选择以勾选图片-->
+    <!--当checkbox勾选的时候，显示勾选的图片-->
     <item android:drawable="@drawable/checkbox_selected" android:state_checked="true"></item>
-    <!--选择默认图片-->
+    <!--默认显示图片-->
     <item android:drawable="@drawable/checkbox_unselect"></item>
 </selector>

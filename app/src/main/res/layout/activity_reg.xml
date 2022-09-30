@@ -1,79 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroudColor"
     android:orientation="vertical"
-    android:weightSum="1"
-    tools:context=".LoginActivity">
+    tools:context="com.example.administrator.egapp.LoginActivity"
+    android:background="@color/backgroundColor"
+    android:weightSum="1">
+
 
     <ImageView
-
+        android:layout_marginTop="60dp"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:layout_weight="0.01"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:layout_weight="0.01" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/appName"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        android:text="@string/appName"/>
 
     <EditText
         android:id="@+id/username"
-        style="@style/CheckBoxThrme"
+        style="@style/CheckBoxTheme"
         android:layout_width="match_parent"
+        android:textSize="18dp"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="50dp"
         android:drawableLeft="@drawable/user"
         android:hint="请输入用户名"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="16dp" />
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        />
 
     <EditText
-        android:id="@+id/passeword"
-        style="@style/CheckBoxThrme"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/password"
+        android:hint="请输入密码"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="-40dp"
-        android:drawableLeft="@drawable/password"
-        android:hint="请输入用户密码"
-        android:textColorHint="@color/white"
-        android:textSize="16dp" />
+        android:layout_marginTop="5dp"
+        />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/round_button"
-        android:text="注 册" />
+        android:layout_marginRight="50dp"
+        android:text="注  册"/>
+
 
     <TextView
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="10dp"
-        android:text="返回"
-        android:textColor="@color/white"
+        android:layout_gravity="right"
+        android:paddingTop="6dp"
         android:textSize="20dp"
-
-        />
-
-
+        android:textColor="@color/white"
+        android:text="返   回"/>
 </LinearLayout>

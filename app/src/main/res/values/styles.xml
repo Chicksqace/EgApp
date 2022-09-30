@@ -7,14 +7,20 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="CheckBoxThrme" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
-        <!--自定义一些我们的样式,用于将Checkbox的一些常用的风格进行封装，不用-->
+
+
+    <style name="CheckBoxTheme" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <!--自定义一些我们的样式，用于将CHeckbox一些常用的风格进行封装，不用每一个checkbox都写一遍样式。-->
         <item name="android:button">@drawable/checkbox_selector</item>
+
+        <!--文字提醒换成白色-->
         <item name="android:textColorHint">
             @color/white
         </item>
+        <!--文字换成白色-->
         <item name="android:textColor">
             @color/white
         </item>
     </style>
+
 </resources>
