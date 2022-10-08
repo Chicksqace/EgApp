@@ -11,67 +11,70 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DbHelper extends SQLiteOpenHelper {
-
+    //定义数据库名
     private static final String DATABASE_NAME = "EGAPP";
 
+    //定义构造函数，设置数据库初始化参数
     public DbHelper(Context context) {
-        super(context, DATABASE_NAME, null , 1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
+
+    //数据库创建时会执行
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_sql = "CREATE TABLE USER(ID INTEGER PRIMARY KEY AUTOINCREMENT,USERNAME TEXT NOT NULL UNIQUE,PASSWORD TEXT NOT NULL)";
-        db.execSQL(create_sql);
+
+        //创建USER表
+        String createSql = "CREATE TABLE USER(ID INTEGER PRIMARY KEY AUTOINCREMENT,USER TEXT NOT NULL UNIQUE,PASSWORD TEXT NOT NULL)";
+        db.execSQL(createSql);
+
     }
 
+    //数据库升级时会执行
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
-    /**
-     * 插入用户信息到sqlite数据库
-     * @param username 用户名
-     * @param password 密码
-     * @return
-     */
-    public long insertUser(String username,String password){
-        //获得可写数据库
+
+    // 插入用户到数据库
+    public long insertUser(String username, String password){
+        //获得一个可写操作的数据库
         SQLiteDatabase writableDatabase = this.getWritableDatabase();
-        //填充需要插入到表中的内容
+
+        //将插入参数封装到ContentValues中，利用db中的insert函数，将相关数据插入到数据库中。
+        //这里有两种方式，一种是直接通过输写sql语句插入，但是需要拼接字符串等操作，容易写错。
+        //因此，这里采用的第二种方式，这种方式通过contentValues对我们的参数进行了封装
+        // ，使得能够在不书写sql语句的情况下也能够实现
+        //数据库的插入。
         ContentValues contentValues = new ContentValues();
-        contentValues.put("username",username);
+        contentValues.put("user",username);
         contentValues.put("password",password);
-        //调用insert插入数据到user表中
-        long result = writableDatabase.insert("user", null, contentValues);
-        //释放资源
+        //返回插入成功的数量
+        long insert = writableDatabase.insert("user", null, contentValues);
         writableDatabase.close();
-        return result;
+        return insert;
     }
 
-    /**
-     * 用sqlite中查询用户和密码
-     * @param username 用户
-     * @param password 密码
-     * @return
-     */
-    public boolean searchUser(String username,String password){
-        //定义查询sql语句。其中？代表占位符号，会被后面的parmas中得数据里面填充的数据替换掉。
-        String searchSql = "SELECT * FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
-        //得到一个可读的数据库
+
+    public boolean selectUser(String username,String password){
+        String searchSql = "SELECT * FROM USER WHERE USER=? AND PASSWORD=?";
+        //替换占位符里面的？，利用字符串数组进行替换
+        String[] values = new String[]{username,password};
+
+        //获取可读的数据库
         SQLiteDatabase readableDatabase = this.getReadableDatabase();
-        //替换sql语句中得占位符
-        String[] params = new String[]{username,password};
-        //得到游标对象，这里面存放着查询出来的数据
-        Cursor cursor = readableDatabase.rawQuery(searchSql, params);
+
+        //得到查询的数据，返回一个cursor 游标
+        Cursor cursor = readableDatabase.rawQuery(searchSql, values);
+        //如果能查询的数据大于0，则代表至少有一个数据。
         if (cursor.getCount()>0){
-            //代表查询到了至少一条数据
-            //销毁资源
+            //释放cursor资源
             cursor.close();
             readableDatabase.close();
             return true;
         }
-        //销毁资源
+        //释放cursor资源。
         cursor.close();
         readableDatabase.close();
         return false;
