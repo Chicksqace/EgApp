@@ -28,6 +28,7 @@
                 android:textColor="#ffffff"
                 android:text="档案总数"/>
             <TextView
+                android:id="@+id/tv_total1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,6 +49,7 @@
                 android:textColor="#ffffff"
                 android:text="档案总数"/>
             <TextView
+                android:id="@+id/tv_total2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -69,6 +71,7 @@
                 android:textColor="#ffffff"
                 android:text="档案总数"/>
             <TextView
+                android:id="@+id/tv_total3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
